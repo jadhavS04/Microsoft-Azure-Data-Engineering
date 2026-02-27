@@ -1,0 +1,44 @@
+// Customer 1
+{
+  "firstName": "Joe",
+  "lastName": "Jones",
+  "address":
+  {
+    "streetAddress": "1 Main St.",
+    "city": "New York",
+    "state": "NY",
+    "postalCode": "10099"
+  },
+  "contact":
+  [
+    {
+      "type": "home",
+      "number": "555 123-1234"
+    },
+    {
+      "type": "email",
+      "address": "joe@litware.com"
+    }
+  ]
+}
+
+// Customer 2
+{
+  "firstName": "Samir",
+  "lastName": "Nadoy",
+  "address":
+  {
+    "streetAddress": "123 Elm Pl.",
+    "unit": "500",
+    "city": "Seattle",
+    "state": "WA",
+    "postalCode": "98999"
+  },
+  "contact":
+  [
+    {
+      "type": "email",
+      "address": "samir@northwind.com"
+    }
+  ]
+}
