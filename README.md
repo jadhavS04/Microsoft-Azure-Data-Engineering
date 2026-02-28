@@ -1,4 +1,5 @@
 # Microsoft-Azure-Data-Engineering
+'''mermaid
 graph LR
     subgraph Data Sources
         DB[(Databases)]
@@ -29,3 +30,4 @@ graph LR
 
     style DL fill:#f9d0c4,stroke:#333,stroke-width:2px
     style DW fill:#f9d0c4,stroke:#333,stroke-width:2px
+'''
