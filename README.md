@@ -34,7 +34,9 @@ graph TD
     ACID --> DE
     ACID --> ML
     ACID --> STR
+```
 
+```mermaid
 graph TD
     %% Define Color Styles
     classDef source fill:#e1f5fe,stroke:#0288d1,stroke-width:2px;
