@@ -1,5 +1,4 @@
 # Microsoft-Azure-Data-Engineering
-
 graph LR
     subgraph Data Sources
         DB[(Databases)]
