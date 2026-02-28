@@ -1,33 +1,37 @@
 # Microsoft-Azure-Data-Engineering
-'''mermaid
-graph LR
-    subgraph Data Sources
-        DB[(Databases)]
-        APP[Applications]
-        LOG[Logs]
-        IOT[IoT / Events]
+```mermaid
+graph TD
+    %% Define Color Styles
+    classDef source fill:#e1f5fe,stroke:#0288d1,stroke-width:2px;
+    classDef lakehouse fill:#e8f5e9,stroke:#2e7d32,stroke-width:3px;
+    classDef workload fill:#fff3e0,stroke:#e65100,stroke-width:2px;
+
+    subgraph Sources
+        B[Batch Data]:::source
+        S[Streaming Data]:::source
     end
 
-    subgraph Problem Area: Siloed Storage
-        DL[(Data Lake \n - Raw Data \n - Cheap \n - No Governance)]
-        DW[(Data Warehouse \n - Structured \n - Expensive \n - BI Focus)]
+    subgraph Lakehouse Storage Layer
+        CS[(Cloud Object Storage)]:::lakehouse
+        OF[Open Formats: Parquet / Delta]:::lakehouse
+        ACID[ACID Transactions & Schema Enforcement]:::lakehouse
+        
+        CS --- OF
+        OF --- ACID
     end
 
-    subgraph Consumers
-        BI[BI Tools \n Data Analysts]
-        ML[Data Scientists \n ML Models]
+    subgraph Unified Workloads
+        SQL[SQL Analytics]:::workload
+        DE[Data Engineering]:::workload
+        ML[Machine Learning]:::workload
+        STR[Streaming]:::workload
     end
 
-    DB --> DL
-    APP --> DL
-    LOG --> DL
-    IOT --> DL
-
-    DL -->|Complex Pipelines \n Duplication| DW
+    B --> CS
+    S --> CS
     
-    DW --> BI
-    DL -->|Slow ML Workflows| ML
-
-    style DL fill:#f9d0c4,stroke:#333,stroke-width:2px
-    style DW fill:#f9d0c4,stroke:#333,stroke-width:2px
-'''
+    ACID --> SQL
+    ACID --> DE
+    ACID --> ML
+    ACID --> STR
+```
